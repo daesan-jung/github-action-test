@@ -55,8 +55,8 @@ jobs:
         mysql --version
         sudo apt-get install -y mysql-client
         sudo service mysql start
-        mysql -e "CREATE DATABASE MYDB"
-        mysql -e "SHOW DATABASES"
+        mysql -uroot -e "CREATE DATABASE MYDB"
+        mysql -uroot -e "SHOW DATABASES"
     - name: Test with pytest
       run: |
         cd src/myapp
