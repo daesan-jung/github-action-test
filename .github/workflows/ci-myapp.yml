@@ -18,7 +18,8 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_USER: test
+          MYSQL_PASSWORD: test
           MYSQL_DATABASE: MYDB
         ports:
           - 3306
@@ -55,8 +56,8 @@ jobs:
         mysql --version
         sudo apt-get install -y mysql-client
         sudo service mysql start
-        mysql -uroot -p'' -e "CREATE DATABASE MYDB"
-        mysql -uroot -p'' -e "SHOW DATABASES"
+        mysql -utest -ptest -e "CREATE DATABASE MYDB"
+        mysql -utest -ptest -e "SHOW DATABASES"
     - name: Test with pytest
       run: |
         cd src/myapp
